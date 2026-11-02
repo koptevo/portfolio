@@ -2,6 +2,21 @@
 
 Портфолио-визитка без имени и фамилии: показывает клиенту, что делается и сколько это стоит.
 
+**Живой адрес:** https://koptevo.github.io/portfolio/
+**Демо барбершопа:** https://koptevo.github.io/portfolio/works/barbershop/
+
+## Как обновить сайт
+
+После правок в папке `portfolio`:
+
+```
+git add -A
+git commit -m "что изменил"
+git push
+```
+
+GitHub Pages пересоберёт сайт за минуту — обнови страницу с `Ctrl+F5`.
+
 ## Файлы
 
 | Файл | Зачем |

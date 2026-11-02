@@ -5,6 +5,9 @@
 **Живой адрес:** https://koptevo.github.io/portfolio/
 **Демо барбершопа:** https://koptevo.github.io/portfolio/works/barbershop/
 
+> Что уже сделано, какие решения приняты и почему — в файле [NOTES.md](NOTES.md).
+> Его стоит прочитать перед тем, как что-то менять.
+
 ## Как обновить сайт
 
 После правок в папке `portfolio`:

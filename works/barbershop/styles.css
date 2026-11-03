@@ -172,34 +172,44 @@ a { color: inherit; text-decoration: none; }
 .price__d { font-size: 13px; color: var(--muted); }
 .price__v { font-size: clamp(14px, 1.5vw, 17px); white-space: nowrap; }
 
-/* Мастера */
+/* Мастера — текстовые карточки, без рамок под фото */
 .masters {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(14px, 2vw, 28px);
+  gap: clamp(18px, 3vw, 44px);
 }
 
-.master__photo {
-  aspect-ratio: 3 / 4;
-  margin-bottom: 14px;
-}
-
-.master__photo--1 { background: linear-gradient(160deg, #b9ad9c, #6d6355 60%, #3a342c); }
-.master__photo--2 { background: linear-gradient(160deg, #cbbfae, #7a6a58 55%, #463c31); }
-.master__photo--3 { background: linear-gradient(160deg, #d8cec0, #8d7f6d 55%, #514639); }
-
-.master__meta {
+.master {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 10px;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 14px;
   border-top: 1px solid var(--line);
-  padding-top: 10px;
 }
 
-.master__meta h3 { margin: 0; font-size: 18px; font-weight: 500; letter-spacing: -.01em; }
-.master__meta span { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-.master p { margin: 6px 0 0; font-size: 13.5px; color: var(--muted); }
+.master__n {
+  margin: 0 0 2px;
+  font-size: 11px;
+  letter-spacing: .14em;
+  color: var(--muted);
+}
+
+.master__name {
+  margin: 0;
+  font-size: clamp(24px, 2.6vw, 34px);
+  line-height: 1.05;
+  letter-spacing: -.03em;
+  font-weight: 500;
+}
+
+.master__role {
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+
+.master__about { margin: 8px 0 0; font-size: 13.5px; color: var(--muted); max-width: 26ch; }
 
 /* Запись */
 .bsec--book { background: var(--ink); color: var(--paper); }

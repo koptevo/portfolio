@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Барсук — барбершоп на Войковской</title>
+  <meta name="description" content="Барбершоп «Барсук»: стрижка, борода, бритьё. Онлайн-запись.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Это пример страницы, а не официальный сайт заведения -->
+  <a class="demo-flag" href="../../index.html">← пример страницы · не официальный сайт</a>
+
+  <header class="hd">
+    <a class="hd__logo" href="#top">БАРСУК<span>°</span></a>
+    <nav class="hd__nav">
+      <a href="#services">Услуги</a>
+      <a href="#masters">Мастера</a>
+      <a href="#booking">Запись</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="hd__cta" href="#booking">Записаться</a>
+  </header>
+
+  <main id="top">
+
+    <!-- Первый экран -->
+    <section class="bhero">
+      <p class="bhero__meta">
+        <span>Войковская</span>
+        <span>5 мастеров</span>
+        <span>запись онлайн</span>
+      </p>
+      <h1 class="bhero__title">
+        Стрижка — <em>это</em><br>не про волосы.
+      </h1>
+      <div class="bhero__row">
+        <p class="bhero__lead">
+          Классический барбершоп: форма, борода, горячее бритьё.
+          Без спешки, без лишних разговоров и без «а давайте покороче».
+        </p>
+        <div class="bhero__hours">
+          <span>Запись онлайн · 24/7</span>
+          <span>Без звонков и ожидания</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Услуги -->
+    <section class="bsec" id="services" data-scroll>
+      <p class="label">01 — Услуги</p>
+      <ul class="price">
+        <li>
+          <span class="price__n">01</span>
+          <span class="price__name">Мужская стрижка</span>
+          <span class="price__d">45 мин · мытьё и укладка</span>
+          <span class="price__v">2 500 ₽</span>
+        </li>
+        <li>
+          <span class="price__n">02</span>
+          <span class="price__name">Оформление бороды</span>
+          <span class="price__d">30 мин · контур, триммер, масло</span>
+          <span class="price__v">1 800 ₽</span>
+        </li>
+        <li>
+          <span class="price__n">03</span>
+          <span class="price__name">Комплекс: стрижка + борода</span>
+          <span class="price__d">75 мин · выгоднее на 500 ₽</span>
+          <span class="price__v">3 800 ₽</span>
+        </li>
+        <li>
+          <span class="price__n">04</span>
+          <span class="price__name">Королевское бритьё</span>
+          <span class="price__d">40 мин · опасная бритва, полотенце</span>
+          <span class="price__v">2 000 ₽</span>
+        </li>
+        <li>
+          <span class="price__n">05</span>
+          <span class="price__name">Детская стрижка</span>
+          <span class="price__d">до 12 лет · спокойно и быстро</span>
+          <span class="price__v">1 500 ₽</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Мастера -->
+    <section class="bsec" id="masters" data-scroll>
+      <p class="label">02 — Мастера</p>
+      <div class="masters">
+        <article class="master">
+          <div class="master__photo master__photo--1"></div>
+          <div class="master__meta">
+            <h3>Илья</h3>
+            <span>топ-барбер</span>
+          </div>
+          <p>Классика, фейды, работа с густыми волосами.</p>
+        </article>
+        <article class="master">
+          <div class="master__photo master__photo--2"></div>
+          <div class="master__meta">
+            <h3>Катя</h3>
+            <span>топ-барбер</span>
+          </div>
+          <p>Борода, опасная бритва, уход.</p>
+        </article>
+        <article class="master">
+          <div class="master__photo master__photo--3"></div>
+          <div class="master__meta">
+            <h3>Вардан</h3>
+            <span>барбер</span>
+          </div>
+          <p>Текстура, длинные стрижки, укладка.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Запись -->
+    <section class="bsec bsec--book" id="booking" data-scroll>
+      <p class="label">03 — Запись</p>
+      <div class="book">
+        <div class="book__text">
+          <h2>Оставьте номер — <em>перезвоним</em> за 15 минут</h2>
+          <p>
+            Или запишитесь сами, если хотите выбрать время и мастера:
+            <a class="book__link" href="https://yclients.com/salon/barsuk/794006/" target="_blank" rel="noopener">
+              открыть онлайн-запись</a>.
+          </p>
+        </div>
+
+        <form class="form" id="form" novalidate>
+          <label class="field">
+            <span>Имя</span>
+            <input type="text" name="name" placeholder="Как к вам обращаться" required>
+          </label>
+          <label class="field">
+            <span>Телефон</span>
+            <input type="tel" name="phone" placeholder="+7 900 000-00-00" required>
+          </label>
+          <label class="field">
+            <span>Услуга</span>
+            <select name="service">
+              <option>Мужская стрижка</option>
+              <option>Оформление бороды</option>
+              <option>Стрижка + борода</option>
+              <option>Королевское бритьё</option>
+              <option>Детская стрижка</option>
+            </select>
+          </label>
+          <button class="btn" type="submit">Записаться</button>
+          <p class="form__note">Это пример формы: данные никуда не отправляются.</p>
+        </form>
+
+        <p class="form__ok" id="ok" hidden>Готово — заявка принята (пример). В настоящем сайте здесь пришло бы подтверждение.</p>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="bsec" id="contacts" data-scroll>
+      <p class="label">04 — Контакты</p>
+      <div class="contacts">
+        <div>
+          <h3>Адрес</h3>
+          <p>Москва, ул. Зои и Александра<br>Космодемьянских, 27</p>
+        </div>
+        <div>
+          <h3>Телефон</h3>
+          <p><a href="tel:+79096282624">+7 909 628-26-24</a></p>
+        </div>
+        <div>
+          <h3>Запись</h3>
+          <p><a href="https://yclients.com/salon/barsuk/794006/" target="_blank" rel="noopener">Онлайн, в любое время</a></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="ft">
+    <span>© 2026 Барсук°</span>
+    <span>Пример страницы, сделанный как демо</span>
+  </footer>
+
+  <script src="../../motion.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

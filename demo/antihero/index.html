@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antihero — барбершоп на Войковской</title>
+  <meta name="description" content="Antihero: стрижка, борода, бритьё. Коптево, Зои и Александра Космодемьянских, 25/34.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="color-scheme" content="light">
+  <link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+
+  <!-- Это пример страницы, а не официальный сайт заведения -->
+  <a class="demo-flag" href="../../index.html">← пример страницы · не официальный сайт</a>
+
+  <header class="hd">
+    <a class="hd__logo" href="#top">ANTIHERO<span>°</span></a>
+    <nav class="hd__nav">
+      <a href="#services">Услуги</a>
+      <a href="#about">О нас</a>
+      <a href="#booking">Запись</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="hd__cta" href="#booking">Записаться</a>
+  </header>
+
+  <main id="top">
+
+    <!-- Первый экран -->
+    <section class="bhero">
+      <p class="bhero__meta">
+        <span>Коптево</span>
+        <span>4,9 в 2ГИС</span>
+        <span>номинант 2026</span>
+      </p>
+      <h1 class="bhero__title">
+        Стрижка — <em>это</em><br>не про волосы.
+      </h1>
+      <div class="bhero__row">
+        <p class="bhero__lead">
+          Классический барбершоп: форма, борода, горячее бритьё.
+          Без спешки, без лишних разговоров и без «а давайте покороче».
+        </p>
+        <div class="bhero__hours">
+          <span>Каждый день · 10:00–22:00</span>
+          <span>Зои и Александра Космодемьянских, 25/34</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Услуги -->
+    <section class="bsec" id="services" data-scroll>
+      <p class="label">01 — Услуги</p>
+      <ul class="price">
+        <li>
+          <span class="price__n">01</span>
+          <span class="price__name">Мужская стрижка</span>
+          <span class="price__d">45 мин · мытьё и укладка</span>
+          <span class="price__v">2 500 ₽</span>
+        </li>
+        <li>
+          <span class="price__n">02</span>
+          <span class="price__name">Оформление бороды</span>
+          <span class="price__d">30 мин · контур, триммер, масло</span>
+          <span class="price__v">1 800 ₽</span>
+        </li>
+        <li>
+          <span class="price__n">03</span>
+          <span class="price__name">Комплекс: стрижка + борода</span>
+          <span class="price__d">75 мин · выгоднее на 500 ₽</span>
+          <span class="price__v">3 800 ₽</span>
+        </li>
+        <li>
+          <span class="price__n">04</span>
+          <span class="price__name">Королевское бритьё</span>
+          <span class="price__d">40 мин · опасная бритва, полотенце</span>
+          <span class="price__v">2 000 ₽</span>
+        </li>
+        <li>
+          <span class="price__n">05</span>
+          <span class="price__name">Детская стрижка</span>
+          <span class="price__d">до 12 лет · спокойно и быстро</span>
+          <span class="price__v">1 500 ₽</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- О нас -->
+    <section class="bsec" id="about" data-scroll>
+      <p class="label">02 — О нас</p>
+      <div class="about">
+        <p class="about__quote">
+          «Мы категоричны в плане комфорта и уюта и хотим,
+          чтобы ты чувствовал себя как дома».
+        </p>
+        <div class="about__facts">
+          <div>
+            <h3>4,9</h3>
+            <span>рейтинг в 2ГИС</span>
+          </div>
+          <div>
+            <h3>10–22</h3>
+            <span>без выходных</span>
+          </div>
+          <div>
+            <h3>FIFA</h3>
+            <span>и кофе, пока ждёшь</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Запись -->
+    <section class="bsec bsec--book" id="booking" data-scroll>
+      <p class="label">03 — Запись</p>
+      <div class="book">
+        <div class="book__text">
+          <h2>Оставьте номер — <em>перезвоним</em> за 15 минут</h2>
+          <p>
+            Или позвоните сами:
+            <a class="book__link" href="tel:+74994600951">+7 499 460-09-51</a>.
+          </p>
+        </div>
+
+        <form class="form" id="form" novalidate>
+          <label class="field">
+            <span>Имя</span>
+            <input type="text" name="name" placeholder="Как к вам обращаться" required>
+          </label>
+          <label class="field">
+            <span>Телефон</span>
+            <input type="tel" name="phone" placeholder="+7 900 000-00-00" required>
+          </label>
+          <label class="field">
+            <span>Услуга</span>
+            <select name="service">
+              <option>Мужская стрижка</option>
+              <option>Оформление бороды</option>
+              <option>Стрижка + борода</option>
+              <option>Королевское бритьё</option>
+              <option>Детская стрижка</option>
+            </select>
+          </label>
+          <button class="btn" type="submit">Записаться</button>
+          <p class="form__note">Это пример формы: данные никуда не отправляются.</p>
+        </form>
+
+        <p class="form__ok" id="ok" hidden>Готово — заявка принята (пример). В настоящем сайте здесь пришло бы подтверждение.</p>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="bsec" id="contacts" data-scroll>
+      <p class="label">04 — Контакты</p>
+      <div class="contacts">
+        <div>
+          <h3>Адрес</h3>
+          <p>Москва, ул. Зои и Александра<br>Космодемьянских, 25/34</p>
+        </div>
+        <div>
+          <h3>Телефон</h3>
+          <p><a href="tel:+74994600951">+7 499 460-09-51</a></p>
+        </div>
+        <div>
+          <h3>Часы</h3>
+          <p>Каждый день<br>10:00–22:00</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="ft">
+    <span>© 2026 Antihero°</span>
+    <span>Пример страницы, сделанный как демо</span>
+  </footer>
+
+  <script src="../../motion.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

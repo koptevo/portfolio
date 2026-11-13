@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>У меня лапки — груминг-студия в Коптево</title>
+  <meta name="description" content="Груминг-студия «У меня лапки»: стрижки, вычёсывание, купание. Запись в один шаг.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="color-scheme" content="light">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="У меня лапки — пример страницы груминг-студии">
+  <meta property="og:description" content="Работы, цены и запись на одном экране. Пример того, как могла бы выглядеть ваша страница.">
+  <meta property="og:image" content="https://koptevo.github.io/portfolio/demo/grooming/preview.png">
+  <meta property="og:url" content="https://koptevo.github.io/portfolio/demo/grooming/">
+  <link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+
+  <!-- Это пример страницы, а не официальный сайт студии -->
+  <a class="demo-flag" href="../../index.html">← пример страницы · не официальный сайт</a>
+
+  <header class="hd">
+    <a class="hd__logo" href="#top">У МЕНЯ ЛАПКИ<span>*</span></a>
+    <nav class="hd__nav">
+      <a href="#services">Услуги</a>
+      <a href="#why">Как работаем</a>
+      <a href="#order">Запись</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="hd__cta" href="#order">Записаться</a>
+  </header>
+
+  <main id="top">
+
+    <!-- Первый экран -->
+    <section class="hero">
+      <div class="hero__text">
+        <p class="hero__meta">
+          <span>Клары Цеткин, 25к2</span>
+          <span>по записи</span>
+        </p>
+        <h1 class="hero__title">
+          Чистый пёс — <em>это</em><br>счастливый пёс<br>и спокойный вы.
+        </h1>
+        <p class="hero__lead">
+          Стрижки, вычёсывание, купание. Работаем спокойно и без клеток,
+          фото присылаем прямо в переписке.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--solid" href="#order">Записать питомца</a>
+          <a class="btn btn--ghost" href="https://t.me/lapki_caree" target="_blank" rel="noopener">Написать в Telegram</a>
+        </div>
+      </div>
+
+      <div class="hero__photos" data-scroll>
+        <figure class="hero__main">
+          <img src="img/hero.jpg" alt="Золотистый ретривер сидит с тюльпаном в зубах">
+        </figure>
+        <figure class="hero__side hero__side--a">
+          <img src="img/pug.jpg" alt="Мопс в свитере на жёлтом фоне" loading="lazy">
+        </figure>
+        <figure class="hero__side hero__side--b">
+          <img src="img/frenchie.jpg" alt="Французский бульдог в жёлтой кофте" loading="lazy">
+        </figure>
+      </div>
+    </section>
+
+    <!-- Услуги -->
+    <section class="sec" id="services" data-scroll>
+      <p class="label">01 — Услуги</p>
+      <div class="catalog">
+        <article class="c-card">
+          <figure class="c-card__ph">
+            <img src="img/hero.jpg" alt="Стрижка ретривера" loading="lazy">
+          </figure>
+          <div class="c-card__body">
+            <h3>Комплексная стрижка</h3>
+            <p>по породе и под характер · 1,5–2 часа</p>
+            <span class="c-card__price">от 3 500 ₽</span>
+          </div>
+        </article>
+        <article class="c-card">
+          <figure class="c-card__ph">
+            <img src="img/collie.jpg" alt="Колли после вычёсывания" loading="lazy">
+          </figure>
+          <div class="c-card__body">
+            <h3>Вычёсывание и линька</h3>
+            <p>шерсть уходит в салон, а не по дому</p>
+            <span class="c-card__price">от 2 200 ₽</span>
+          </div>
+        </article>
+        <article class="c-card">
+          <figure class="c-card__ph">
+            <img src="img/pug.jpg" alt="Мопс после купания" loading="lazy">
+          </figure>
+          <div class="c-card__body">
+            <h3>Гигиенический груминг</h3>
+            <p>глаза, уши, когти · раз в 3–4 недели</p>
+            <span class="c-card__price">от 1 800 ₽</span>
+          </div>
+        </article>
+        <article class="c-card">
+          <figure class="c-card__ph">
+            <img src="img/frenchie.jpg" alt="Французский бульдог в кофте" loading="lazy">
+          </figure>
+          <div class="c-card__body">
+            <h3>Купание и сушка</h3>
+            <p>шампунь под тип шерсти, без сквозняков</p>
+            <span class="c-card__price">от 1 500 ₽</span>
+          </div>
+        </article>
+        <article class="c-card">
+          <figure class="c-card__ph">
+            <img src="img/samoyed.jpg" alt="Самоед перед фото" loading="lazy">
+          </figure>
+          <div class="c-card__body">
+            <h3>Подготовка к выставке</h3>
+            <p>лапки, шерсть, финальная укладка</p>
+            <span class="c-card__price">по договорённости</span>
+          </div>
+        </article>
+      </div>
+      <p class="catalog__note">Цены в примере ориентировочные — настоящие заменяем на ваши.</p>
+    </section>
+
+    <!-- Полоса «сложный питомец» -->
+    <section class="strip" data-scroll>
+      <figure class="strip__ph">
+        <img src="img/bed.jpg" alt="Пёс отдыхает в лежанке" loading="lazy">
+      </figure>
+      <div class="strip__text">
+        <h2>Боится фена или пылесоса?</h2>
+        <p>Работаем в темпе питомца: паузы, лакомства, никаких клеток. Со второй визита обычно становится любимым местом.</p>
+      </div>
+    </section>
+
+    <!-- Как работаем -->
+    <section class="sec" id="why" data-scroll>
+      <p class="label">02 — Как работаем</p>
+      <div class="why">
+        <article class="card">
+          <p class="card__n">01</p>
+          <h3 class="card__name">Без клеток</h3>
+          <p class="card__about">Стол и спокойная комната — пёс не ждёт в очереди за решёткой.</p>
+        </article>
+        <article class="card">
+          <p class="card__n">02</p>
+          <h3 class="card__name">Фото в переписке</h3>
+          <p class="card__about">Присылаем фото до и после прямо в Telegram — вы видите результат.</p>
+        </article>
+        <article class="card">
+          <p class="card__n">03</p>
+          <h3 class="card__name">Запись в один шаг</h3>
+          <p class="card__about">Написали породу и день — предложили время. Без звонков.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Запись -->
+    <section class="sec sec--order" id="order" data-scroll>
+      <p class="label">03 — Запись</p>
+      <div class="order">
+        <div class="order__text">
+          <h2>Напишите — <em>подберём</em> день под вашего пса</h2>
+          <p>
+            Или сразу в Telegram, если удобнее переписка:
+            <a class="order__link" href="https://t.me/lapki_caree" target="_blank" rel="noopener">написать в Telegram</a>.
+          </p>
+        </div>
+
+        <form class="form" id="form" novalidate>
+          <label class="field">
+            <span>Имя</span>
+            <input type="text" name="name" placeholder="Как к вам обращаться" required>
+          </label>
+          <label class="field">
+            <span>Телефон</span>
+            <input type="tel" name="phone" placeholder="+7 900 000-00-00" required>
+          </label>
+          <label class="field">
+            <span>Услуга</span>
+            <select name="service">
+              <option>Комплексная стрижка</option>
+              <option>Вычёсывание и линька</option>
+              <option>Гигиенический груминг</option>
+              <option>Купание и сушка</option>
+              <option>Подготовка к выставке</option>
+            </select>
+          </label>
+          <button class="btn btn--solid" type="submit">Записать питомца</button>
+          <p class="form__note">Это пример формы: данные никуда не отправляются.</p>
+        </form>
+
+        <p class="form__ok" id="ok" hidden>Готово — заявка принята (пример). В настоящем сайте здесь пришло бы подтверждение.</p>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="contacts-band" id="contacts" data-scroll>
+      <figure class="contacts-band__ph">
+        <img src="img/samoyed.jpg" alt="Самоед на розовом фоне" loading="lazy">
+      </figure>
+      <div class="contacts-band__body">
+        <p class="label label--light">04 — Контакты</p>
+        <div class="contacts">
+          <div>
+            <h3>Адрес</h3>
+            <p>Москва, ул. Клары Цеткин, 25к2</p>
+          </div>
+          <div>
+            <h3>Телефон</h3>
+            <p><a href="tel:+79890470312">+7 989 047-03-12</a></p>
+          </div>
+          <div>
+            <h3>Telegram</h3>
+            <p><a href="https://t.me/lapki_caree" target="_blank" rel="noopener">@lapki_caree</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="ft">
+    <span>© 2026 У меня лапки*</span>
+    <span>Пример страницы, сделанный как демо</span>
+  </footer>
+
+  <script src="../../motion.js"></script>
+  <script src="script.js?v=1"></script>
+</body>
+</html>

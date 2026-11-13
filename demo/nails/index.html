@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ЛАК — пример страницы студии маникюра</title>
+  <meta name="description" content="Пример страницы студии маникюра: услуги, цены, работы и запись в один шаг.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="color-scheme" content="light">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ЛАК — пример страницы студии маникюра">
+  <meta property="og:description" content="Работы, цены и запись на одном экране. Пример того, как могла бы выглядеть ваша страница.">
+  <meta property="og:image" content="https://koptevo.github.io/portfolio/demo/nails/preview.png">
+  <meta property="og:url" content="https://koptevo.github.io/portfolio/demo/nails/">
+  <link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+
+  <!-- Это пример страницы, а не сайт реальной студии -->
+  <a class="demo-flag" href="../../index.html">← пример страницы · не сайт реальной студии</a>
+
+  <header class="hd">
+    <a class="hd__logo" href="#top">ЛАК<span>*</span></a>
+    <nav class="hd__nav">
+      <a href="#services">Услуги</a>
+      <a href="#why">Как проходит</a>
+      <a href="#order">Запись</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="hd__cta" href="#order">Записаться</a>
+  </header>
+
+  <main id="top">
+
+    <!-- Первый экран -->
+    <section class="hero">
+      <div class="hero__text">
+        <p class="hero__meta">
+          <span>студия маникюра</span>
+          <span>по записи</span>
+        </p>
+        <h1 class="hero__title">
+          Ровное <em>покрытие</em><br>и десять дней<br>вдохновения.
+        </h1>
+        <p class="hero__lead">
+          Маникюр, укрепление и уход за кутикулой. Работаем спокойно,
+          стерильно и без спешки — результат видно на фото в переписке.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--solid" href="#order">Записаться</a>
+          <a class="btn btn--ghost" href="#services">Посмотреть услуги</a>
+        </div>
+      </div>
+
+      <div class="hero__photos" data-scroll>
+        <figure class="hero__main">
+          <img src="img/hero.jpg" alt="Тёмный маникюр с янтарным акцентом на нейтральном фоне">
+        </figure>
+        <figure class="hero__side hero__side--a">
+          <img src="img/pastel.jpg" alt="Пастельный маникюр на белом фоне" loading="lazy">
+        </figure>
+        <figure class="hero__side hero__side--b">
+          <img src="img/red.jpg" alt="Красный маникюр с деталями" loading="lazy">
+        </figure>
+      </div>
+    </section>
+
+    <!-- Услуги -->
+    <section class="sec" id="services" data-scroll>
+      <p class="label">01 — Услуги</p>
+      <div class="catalog">
+        <article class="c-card">
+          <figure class="c-card__ph">
+            <img src="img/hero.jpg" alt="Классическое покрытие гель-лаком" loading="lazy">
+          </figure>
+          <div class="c-card__body">
+            <h3>Маникюр + покрытие</h3>
+            <p>форма по вашим рукам · 1,5–2 часа</p>
+            <span class="c-card__price">от 2 500 ₽</span>
+          </div>
+        </article>
+        <article class="c-card">
+          <figure class="c-card__ph">
+            <img src="img/process.jpg" alt="Мастер работает с кутикулой" loading="lazy">
+          </figure>
+          <div class="c-card__body">
+            <h3>Аппаратный маникюр</h3>
+            <p>аккуратная кутикула, без порезов</p>
+            <span class="c-card__price">от 2 000 ₽</span>
+          </div>
+        </article>
+        <article class="c-card">
+          <figure class="c-card__ph">
+            <img src="img/pastel.jpg" alt="Пастельные оттенки" loading="lazy">
+          </figure>
+          <div class="c-card__body">
+            <h3>Укрепление ногтей</h3>
+            <p>гель или армирование · носится 3–4 недели</p>
+            <span class="c-card__price">от 1 200 ₽</span>
+          </div>
+        </article>
+        <article class="c-card">
+          <figure class="c-card__ph">
+            <img src="img/red.jpg" alt="Насыщенный красный дизайн" loading="lazy">
+          </figure>
+          <div class="c-card__body">
+            <h3>Дизайн</h3>
+            <p>френч, роспись, стемпинг · за ноготок</p>
+            <span class="c-card__price">от 100 ₽</span>
+          </div>
+        </article>
+        <article class="c-card">
+          <figure class="c-card__ph">
+            <img src="img/pink.jpg" alt="Нанесение лака с блёстками" loading="lazy">
+          </figure>
+          <div class="c-card__body">
+            <h3>Снятие + уход</h3>
+            <p>бережное снятие, ванночка и масло</p>
+            <span class="c-card__price">от 700 ₽</span>
+          </div>
+        </article>
+      </div>
+      <p class="catalog__note">Цены в примере ориентировочные — настоящие заменяем на ваши.</p>
+    </section>
+
+    <!-- Полоса «про стерильность» -->
+    <section class="strip" data-scroll>
+      <figure class="strip__ph">
+        <img src="img/process.jpg" alt="Мастер обрабатывает инструменты" loading="lazy">
+      </figure>
+      <div class="strip__text">
+        <h2>Стерильно, как в больнице</h2>
+        <p>Инструменты в крафт-пакетах, одноразовые пилки и салфетки. Можете заглянуть в пакет — вскрываем при вас.</p>
+      </div>
+    </section>
+
+    <!-- Как проходит -->
+    <section class="sec" id="why" data-scroll>
+      <p class="label">02 — Как проходит</p>
+      <div class="why">
+        <article class="card">
+          <p class="card__n">01</p>
+          <h3 class="card__name">Чистые инструменты</h3>
+          <p class="card__about">Крафт-пакеты вскрываются при вас — это видно и слышно.</p>
+        </article>
+        <article class="card">
+          <p class="card__n">02</p>
+          <h3 class="card__name">Фото в переписке</h3>
+          <p class="card__about">Присылаем результат прямо в мессенджер — покрытие на 3 и на 14 день.</p>
+        </article>
+        <article class="card">
+          <p class="card__n">03</p>
+          <h3 class="card__name">Запись в один шаг</h3>
+          <p class="card__about">Написали день и услугу — предложили время. Без звонков.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Запись -->
+    <section class="sec sec--order" id="order" data-scroll>
+      <p class="label">03 — Запись</p>
+      <div class="order">
+        <div class="order__text">
+          <h2>Напишите — <em>подберём</em> удобный день</h2>
+          <p>
+            Здесь будет ссылка на ваш Telegram или WhatsApp —
+            гости запишутся в один шаг.
+          </p>
+        </div>
+
+        <form class="form" id="form" novalidate>
+          <label class="field">
+            <span>Имя</span>
+            <input type="text" name="name" placeholder="Как к вам обращаться" required>
+          </label>
+          <label class="field">
+            <span>Телефон</span>
+            <input type="tel" name="phone" placeholder="+7 900 000-00-00" required>
+          </label>
+          <label class="field">
+            <span>Услуга</span>
+            <select name="service">
+              <option>Маникюр + покрытие</option>
+              <option>Аппаратный маникюр</option>
+              <option>Укрепление ногтей</option>
+              <option>Дизайн</option>
+              <option>Снятие + уход</option>
+            </select>
+          </label>
+          <button class="btn btn--solid" type="submit">Записаться</button>
+          <p class="form__note">Это пример формы: данные никуда не отправляются.</p>
+        </form>
+
+        <p class="form__ok" id="ok" hidden>Готово — заявка принята (пример). В настоящем сайте здесь пришло бы подтверждение.</p>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="contacts-band" id="contacts" data-scroll>
+      <figure class="contacts-band__ph">
+        <img src="img/pink.jpg" alt="Нанесение лака, руки крупным планом" loading="lazy">
+      </figure>
+      <div class="contacts-band__body">
+        <p class="label label--light">04 — Контакты</p>
+        <div class="contacts">
+          <div>
+            <h3>Адрес</h3>
+            <p>Здесь будет ваш адрес</p>
+          </div>
+          <div>
+            <h3>Телефон</h3>
+            <p>Здесь будет ваш телефон</p>
+          </div>
+          <div>
+            <h3>Мессенджер</h3>
+            <p>Здесь будет ваш Telegram или WhatsApp</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="ft">
+    <span>© 2026 ЛАК*</span>
+    <span>Пример страницы, сделанный как демо</span>
+  </footer>
+
+  <script src="../../motion.js"></script>
+  <script src="script.js?v=1"></script>
+</body>
+</html>

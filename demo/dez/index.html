@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ДезСервис 24 — дезинсекция и дератизация в Москве и МО</title>
+  <meta name="description" content="Дезинсекция и дератизация в Москве и области: тараканы, клопы, муравьи, грызуны. Выезд в день обращения, гарантия по договору. Звоните 24/7.">
+  <meta name="theme-color" content="#0b120e">
+  <style>
+    :root {
+      --bg: #0b120e;
+      --panel: #101a14;
+      --line: rgba(255, 255, 255, .1);
+      --muted: rgba(235, 240, 235, .6);
+      --accent: #8ee06e;
+      --accent2: #2fbf71;
+      --dark: #070d09;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background:
+        radial-gradient(100% 70% at 90% 0%, #16301f 0%, transparent 55%),
+        radial-gradient(90% 80% at 0% 100%, #12341f 0%, transparent 60%),
+        var(--bg);
+      color: #eef4ee;
+      font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+      line-height: 1.55;
+    }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 18px; }
+    a { color: var(--accent); text-decoration: none; }
+
+    header.top {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(7, 13, 9, .85); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .top__in { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; max-width: 1080px; margin: 0 auto; }
+    .brand { font-weight: 700; letter-spacing: -.02em; font-size: 17px; }
+    .brand span { color: var(--accent); }
+    .top__cta {
+      background: var(--accent2); color: #06130b; font-weight: 600;
+      padding: 9px 18px; border-radius: 10px; font-size: 14px;
+      transition: transform .12s ease, filter .15s ease;
+    }
+    .top__cta:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+    .hero { padding: clamp(56px, 10vw, 110px) 0 40px; }
+    .hero .tag {
+      display: inline-block; font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(142, 224, 110, .4);
+      border-radius: 999px; padding: 6px 12px; margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: clamp(30px, 6vw, 56px); line-height: 1.08; letter-spacing: -.03em;
+      font-weight: 700; max-width: 15ch;
+    }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero p.lead { margin: 18px 0 26px; max-width: 46ch; color: var(--muted); font-size: clamp(15px, 2vw, 18px); }
+    .hero__cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 13px 24px; border-radius: 12px; font-weight: 600; font-size: 15px;
+      transition: transform .12s ease, filter .15s ease;
+    }
+    .btn:hover { transform: translateY(-2px); filter: brightness(1.08); }
+    .btn--main { background: var(--accent2); color: #06130b; }
+    .btn--ghost { border: 1px solid var(--line); color: #fff; }
+    .hero__note { margin-top: 16px; font-size: 13px; color: var(--muted); }
+    .hero__note b { color: var(--accent); }
+
+    .strip {
+      border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+      background: var(--dark);
+    }
+    .strip__in {
+      max-width: 1080px; margin: 0 auto; padding: 14px 18px;
+      display: flex; gap: clamp(16px, 4vw, 48px); flex-wrap: wrap;
+      font-size: 13.5px; color: var(--muted);
+    }
+    .strip b { color: #fff; font-size: 16px; display: block; }
+
+    section { padding: clamp(44px, 8vw, 80px) 0; }
+    .label { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    h2 { font-size: clamp(24px, 4vw, 36px); letter-spacing: -.02em; margin-bottom: 28px; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+    .card {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+      padding: 22px; transition: transform .15s ease, border-color .15s ease;
+    }
+    .card:hover { transform: translateY(-3px); border-color: rgba(142, 224, 110, .35); }
+    .card .ico { font-size: 26px; margin-bottom: 10px; }
+    .card h3 { font-size: 16.5px; margin-bottom: 6px; letter-spacing: -.01em; }
+    .card p { font-size: 13.5px; color: var(--muted); }
+    .card .price { margin-top: 12px; font-weight: 700; color: var(--accent); font-size: 15px; }
+
+    .prices { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+    .prices td { padding: 12px 10px; border-bottom: 1px solid var(--line); }
+    .prices td:last-child { text-align: right; font-weight: 700; color: var(--accent); white-space: nowrap; }
+    .prices .small { color: var(--muted); font-size: 12.5px; display: block; font-weight: 400; }
+
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; counter-reset: st; }
+    .step { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
+    .step .n { color: var(--accent); font-weight: 700; font-size: 13px; letter-spacing: .1em; }
+    .step h3 { font-size: 15.5px; margin: 8px 0 6px; }
+    .step p { font-size: 13px; color: var(--muted); }
+
+    .guarantee {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;
+    }
+    .g { display: flex; gap: 10px; align-items: flex-start; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+    .g .e { font-size: 20px; }
+    .g p { font-size: 13.5px; color: var(--muted); }
+    .g b { color: #fff; display: block; font-size: 14.5px; margin-bottom: 2px; }
+
+    .cta-block {
+      background: linear-gradient(135deg, #16301f, #0f2417);
+      border: 1px solid rgba(142, 224, 110, .3); border-radius: 20px;
+      padding: clamp(28px, 5vw, 48px); text-align: center;
+    }
+    .cta-block h2 { margin-bottom: 10px; }
+    .cta-block p { color: var(--muted); margin-bottom: 22px; }
+
+    footer { border-top: 1px solid var(--line); padding: 26px 0 40px; font-size: 13px; color: var(--muted); }
+    .foot__in { max-width: 1080px; margin: 0 auto; padding: 0 18px; display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+
+    .wa-fab {
+      position: fixed; right: 18px; bottom: 18px; z-index: 20;
+      background: var(--accent2); color: #06130b; font-weight: 700;
+      border-radius: 999px; padding: 13px 20px; font-size: 14.5px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
+      transition: transform .12s ease;
+    }
+    .wa-fab:hover { transform: translateY(-2px); }
+
+    @media (max-width: 640px) {
+      .strip__in { gap: 14px; }
+      .strip__in div { flex: 1 1 40%; }
+    }
+  </style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="top__in">
+    <a class="brand" href="#top">ДезСервис<span>·24</span></a>
+    <a class="top__cta" href="https://wa.me/79259817228?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D1%83%D0%B6%D0%BD%D0%B0%20%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0%20%D0%BE%D1%82%20%D0%BD%D0%B0%D1%81%D0%B5%D0%BA%D0%BE%D0%BC%D1%8B%D1%85" target="_blank" rel="noopener">Вызвать специалиста</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="tag">Москва и область · 24/7</span>
+      <h1>Избавим от <em>тараканов, клопов и грызунов</em> за один выезд</h1>
+      <p class="lead">Дезинсекция и дератизация с гарантией по договору. Безопасные препараты, выезд в день обращения, работаем без опознавательных знаков на машине.</p>
+      <div class="hero__cta">
+        <a class="btn btn--main" href="https://wa.me/79259817228?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D1%83%D0%B6%D0%BD%D0%B0%20%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0%20%D0%BE%D1%82%20%D0%BD%D0%B0%D1%81%D0%B5%D0%BA%D0%BE%D0%BC%D1%8B%D1%85" target="_blank" rel="noopener">Написать в WhatsApp</a>
+        <a class="btn btn--ghost" href="#prices">Посмотреть цены</a>
+      </div>
+      <p class="hero__note">⏱ Выезд в день обращения · 📋 Гарантия по договору до <b>2 лет</b> · 🤫 Конфиденциально</p>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="strip__in">
+      <div><b>40 мин</b>средний приезд по Москве</div>
+      <div><b>2 года</b>гарантия по договору</div>
+      <div><b>1 500+</b>обработок за год</div>
+      <div><b>24/7</b>принимаем заявки</div>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <p class="label">01 — Услуги</p>
+      <h2>Что обрабатываем</h2>
+      <div class="grid">
+        <div class="card"><div class="ico">🪳</div><h3>Тараканы</h3><p>Холодный и горячий туман, гель-барьер. Уходим — насекомые исчезают.</p><div class="price">от 2 500 ₽</div></div>
+        <div class="card"><div class="ico">🛏</div><h3>Клопы</h3><p>Обработка матраса, каркаса и щён. Контрольный визит через 14 дней — бесплатно.</p><div class="price">от 3 000 ₽</div></div>
+        <div class="card"><div class="ico">🐜</div><h3>Муравьи и блохи</h3><p>Локальная обработка гнёзд и путей перемещения, безопасно для детей и животных.</p><div class="price">от 2 200 ₽</div></div>
+        <div class="card"><div class="ico">🐀</div><h3>Грызуны (дератизация)</h3><p>Родентицидные блокировки в квартире, на даче или в складе.</p><div class="price">от 2 800 ₽</div></div>
+        <div class="card"><div class="ico">🏢</div><h3>Юрлицам</h3><p>Кафе, склады, офисы — договор с графиком обработок и закрывающими документами.</p><div class="price">по расчёту</div></div>
+        <div class="card"><div class="ico">🧼</div><h3>Дезинфекция</h3><p>Обработка после болезней, затоплений, выезда квартирантов.</p><div class="price">от 3 500 ₽</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="prices" style="background: var(--dark); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+    <div class="wrap">
+      <p class="label">02 — Цены</p>
+      <h2>Сколько стоит обработка квартиры</h2>
+      <table class="prices">
+        <tr><td>Студия / 1-комн.<span class="small">холодный туман + гель</span></td><td>2 500 ₽</td></tr>
+        <tr><td>2-комн.<span class="small">холодный туман + барьер</span></td><td>3 000 ₽</td></tr>
+        <tr><td>3-комн.<span class="small">горячий туман</span></td><td>3 500 ₽</td></tr>
+        <tr><td>Дом / коттедж<span class="small">расчёт по площади</span></td><td>от 4 500 ₽</td></tr>
+        <tr><td>Повторный визит по гарантии</td><td>0 ₽</td></tr>
+      </table>
+      <p style="margin-top:14px; font-size:13px; color:var(--muted)">Цены «под ключ»: выезд, препараты и гарантия уже включены. Ночью и в праздники — без надбавок.</p>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <p class="label">03 — Как мы работаем</p>
+      <h2>Четыре шага — и насекомых нет</h2>
+      <div class="steps">
+        <div class="step"><div class="n">ШАГ 01</div><h3>Заявка</h3><p>Пишете в WhatsApp или звоните — уточняем проблему и время.</p></div>
+        <div class="step"><div class="n">ШАГ 02</div><h3>Выезд</h3><p>Приезжаем в день обращения, машина без опознавательных знаков.</p></div>
+        <div class="step"><div class="n">ШАГ 03</div><h3>Обработка</h3><p>30–60 минут. Профессиональные препараты, безопасные для людей и питомцев.</p></div>
+        <div class="step"><div class="n">ШАГ 04</div><h3>Гарантия</h3><p>Договор и гарантийный талон до 2 лет. Вернутся насекомые — приедем бесплатно.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="wrap">
+      <p class="label">04 — Почему мы</p>
+      <h2>Что включено в каждый выезд</h2>
+      <div class="guarantee">
+        <div class="g"><span class="e">📋</span><p><b>Договор и чек</b>официально, для юрлиц — закрывающие документы</p></div>
+        <div class="g"><span class="e">🛡</span><p><b>Безопасные препараты</b>сертифицированные, 4 класса опасности не используем</p></div>
+        <div class="g"><span class="e">🤫</span><p><b>Конфиденциально</b>соседи не узнают, кто и зачем приезжал</p></div>
+        <div class="g"><span class="e">🔁</span><p><b>Контрольный визит</b>через 14 дней — бесплатно</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cta">
+    <div class="wrap">
+      <div class="cta-block">
+        <p class="label" style="margin-bottom: 14px;">05 — Заявка</p>
+        <h2>Опишите проблему — ответим за 5 минут</h2>
+        <p>Скажите, что беспокоит и где находится — назовём цену и приедем сегодня.</p>
+        <a class="btn btn--main" href="https://wa.me/79259817228?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D1%83%D0%B6%D0%BD%D0%B0%20%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0%20%D0%BE%D1%82%20%D0%BD%D0%B0%D1%81%D0%B5%D0%BA%D0%BE%D0%BC%D1%8B%D1%85" target="_blank" rel="noopener">Написать в WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot__in">
+    <span>ДезСервис·24 — дезинсекция и дератизация, Москва и МО</span>
+    <a href="https://wa.me/79259817228" target="_blank" rel="noopener">WhatsApp 24/7</a>
+  </div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/79259817228?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D1%83%D0%B6%D0%BD%D0%B0%20%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B0%20%D0%BE%D1%82%20%D0%BD%D0%B0%D1%81%D0%B5%D0%BA%D0%BE%D0%BC%D1%8B%D1%85" target="_blank" rel="noopener">💬 Вызвать дезинсектора</a>
+
+</body>
+</html>

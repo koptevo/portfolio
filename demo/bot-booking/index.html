@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Демо · Telegram-бот записи на услуги</title>
+  <meta name="description" content="Интерактивное демо Telegram-бота записи на услуги: выбор услуги, даты и времени, уведомление мастеру.">
+  <meta name="theme-color" content="#0a0a0b">
+  <style>
+    :root {
+      --bg: #0a0a0b;
+      --panel: #121110;
+      --panel2: #171513;
+      --line: rgba(255, 255, 255, .09);
+      --muted: rgba(235, 230, 222, .55);
+      --accent: #ff6a28;
+      --bubble: #242220;
+      --bubble-out: #c9622e;
+      --serif: "Georgia", "Times New Roman", serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(110% 80% at 85% 0%, #4a2a1a 0%, transparent 55%),
+        radial-gradient(90% 90% at 10% 100%, #6e3c1f 0%, transparent 60%),
+        var(--bg);
+      color: #f2ede6;
+      font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: clamp(16px, 4vw, 48px) 16px 64px;
+    }
+    .page-label {
+      align-self: flex-start;
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 auto 14px;
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .page-label a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+    .page-label a:hover { color: #fff; }
+
+    .phone {
+      width: 100%;
+      max-width: 480px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .5);
+      display: flex;
+      flex-direction: column;
+      height: min(78vh, 760px);
+    }
+    .phone__head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      background: var(--panel2);
+      border-bottom: 1px solid var(--line);
+    }
+    .ava {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 25%, #ff8a4d, #8a3d16 75%);
+      display: grid;
+      place-items: center;
+      font-size: 19px;
+    }
+    .phone__head b { font-size: 15px; font-weight: 600; }
+    .phone__head .st { font-size: 12px; color: #7ecb8f; }
+    .phone__head .st::before { content: "●"; font-size: 8px; margin-right: 5px; vertical-align: 2px; }
+
+    .chat {
+      flex: 1;
+      overflow-y: auto;
+      padding: 18px 14px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,.15) transparent;
+    }
+    .msg { max-width: 84%; padding: 10px 14px; border-radius: 16px; font-size: 14.5px; line-height: 1.45; animation: pop .18s ease; }
+    @keyframes pop { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    .msg--bot { background: var(--bubble); border-bottom-left-radius: 5px; align-self: flex-start; }
+    .msg--user { background: var(--bubble-out); color: #fff; border-bottom-right-radius: 5px; align-self: flex-end; }
+    .msg .t { display: block; font-size: 10px; opacity: .55; margin-top: 4px; }
+
+    .sys {
+      align-self: center;
+      font-size: 11.5px;
+      color: var(--muted);
+      border: 1px dashed var(--line);
+      border-radius: 999px;
+      padding: 5px 12px;
+      animation: pop .25s ease;
+      text-align: center;
+    }
+
+    .typing { align-self: flex-start; background: var(--bubble); border-radius: 16px; border-bottom-left-radius: 5px; padding: 12px 16px; display: none; gap: 5px; }
+    .typing i { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); animation: bl 1s infinite; }
+    .typing i:nth-child(2) { animation-delay: .18s; }
+    .typing i:nth-child(3) { animation-delay: .36s; }
+    @keyframes bl { 0%, 100% { opacity: .3; } 50% { opacity: 1; } }
+
+    .keys { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px 14px 16px; border-top: 1px solid var(--line); background: var(--panel2); min-height: 64px; align-content: flex-start; }
+    .key {
+      cursor: pointer;
+      font: inherit;
+      font-size: 13.5px;
+      color: #fff;
+      background: transparent;
+      border: 1px solid var(--accent);
+      border-radius: 12px;
+      padding: 8px 14px;
+      transition: background .15s ease, transform .1s ease;
+    }
+    .key:hover { background: rgba(255, 106, 40, .14); }
+    .key:active { transform: scale(.97); }
+
+    .done { text-align: center; }
+    .done b { font-size: 16px; }
+    .done .card {
+      margin: 10px 0 2px;
+      background: rgba(255, 255, 255, .06);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 14px;
+      text-align: left;
+    }
+    .done .card span { color: var(--muted); }
+
+    .foot {
+      max-width: 480px;
+      width: 100%;
+      margin: 18px auto 0;
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .foot em { font-family: var(--serif); font-size: 15px; color: rgba(255,255,255,.85); }
+  </style>
+</head>
+<body>
+  <div class="page-label">
+    <a href="../../">← портфолио</a>
+    <span>демо · python · 2026</span>
+  </div>
+
+  <div class="phone">
+    <div class="phone__head">
+      <div class="ava">✂️</div>
+      <div>
+        <b>Запись на услуги</b>
+        <div class="st">online</div>
+      </div>
+    </div>
+
+    <div class="chat" id="chat"></div>
+    <div class="keys" id="keys"></div>
+  </div>
+
+  <p class="foot">
+    <em>Как это работает у клиента:</em> бот сам ведёт человека от выбора услуги
+    до подтверждённого слота, а мастеру в этот момент приходит сообщение с новой записью.
+    Такой бот делается за 1 день.
+  </p>
+
+  <script>
+    const chat = document.getElementById("chat");
+    const keys = document.getElementById("keys");
+    const now = () => new Date().toLocaleTimeString("ru-RU", { hour: "2-digit", minute: "2-digit" });
+
+    const SERVICES = [
+      { n: "Стрижка", p: "1 200 ₽", min: 60 },
+      { n: "Маникюр", p: "2 000 ₽", min: 90 },
+      { n: "Массаж", p: "2 500 ₽", min: 60 },
+    ];
+    const TIMES = ["10:00", "12:30", "15:00", "17:30"];
+
+    let pick = {};
+
+    function bubble(cls, html) {
+      const d = document.createElement("div");
+      d.className = "msg " + cls;
+      d.innerHTML = html + `<span class="t">${now()}</span>`;
+      chat.appendChild(d);
+      chat.scrollTop = chat.scrollHeight;
+      return d;
+    }
+    function sys(text) {
+      const d = document.createElement("div");
+      d.className = "sys";
+      d.textContent = text;
+      chat.appendChild(d);
+      chat.scrollTop = chat.scrollHeight;
+    }
+    function setKeys(list) {
+      keys.innerHTML = "";
+      list.forEach(k => {
+        const b = document.createElement("button");
+        b.className = "key";
+        b.textContent = k.t;
+        b.onclick = () => k.fn(b.textContent);
+        keys.appendChild(b);
+      });
+    }
+    function typing(dur, fn) {
+      const t = document.createElement("div");
+      t.className = "typing";
+      t.innerHTML = "<i></i><i></i><i></i>";
+      chat.appendChild(t);
+      chat.scrollTop = chat.scrollHeight;
+      setTimeout(() => { t.remove(); fn(); }, dur);
+    }
+
+    function askService() {
+      typing(600, () => {
+        bubble("msg--bot", "Привет! Запишу вас на услугу 👋<br>Что выбираете?");
+        setKeys(SERVICES.map(s => ({ t: `${s.n} · ${s.p}`, fn: () => {
+          pick.service = s;
+          bubble("msg--user", s.n);
+          keys.innerHTML = "";
+          typing(700, askDay);
+        }})));
+      });
+    }
+
+    function askDay() {
+      const d1 = new Date(), d2 = new Date(Date.now() + 864e5), d3 = new Date(Date.now() + 1728e5);
+      const fmt = d => d.toLocaleDateString("ru-RU", { day: "numeric", month: "short", weekday: "short" });
+      bubble("msg--bot", `«${pick.service.n}», ${pick.service.p}, ~${pick.service.min} минут.<br>На какой день?`);
+      setKeys([
+        { t: "Сегодня", fn: () => chooseDay("сегодня") },
+        { t: "Завтра", fn: () => chooseDay(fmt(d2)) },
+        { t: fmt(d3), fn: () => chooseDay(fmt(d3)) },
+      ]);
+    }
+    function chooseDay(day) {
+      pick.day = day;
+      bubble("msg--user", day);
+      keys.innerHTML = "";
+      typing(650, () => {
+        bubble("msg--bot", "Отлично. Свободное время:");
+        setKeys(TIMES.map(t => ({ t, fn: () => {
+          pick.time = t;
+          bubble("msg--user", t);
+          keys.innerHTML = "";
+          typing(700, askName);
+        }})));
+      });
+    }
+    function askName() {
+      bubble("msg--bot", "Как вас представить мастеру?");
+      keys.innerHTML = "";
+      const inp = document.createElement("button");
+      inp.className = "key";
+      inp.textContent = "Александра";
+      inp.onclick = () => { pick.name = "Александра"; bubble("msg--user", "Александра"); keys.innerHTML = ""; typing(700, confirm); };
+      keys.appendChild(inp);
+    }
+    function confirm() {
+      bubble("msg--bot",
+        `Проверяем:<br><br>✂️ ${pick.service.n} — ${pick.service.p}<br>📅 ${pick.day}, ${pick.time}<br>👤 ${pick.name}<br><br>Всё верно?`);
+      setKeys([
+        { t: "✅ Записаться", fn: () => { bubble("msg--user", "Записаться"); keys.innerHTML = ""; typing(800, done); } },
+        { t: "↩️ Начать заново", fn: () => { bubble("msg--user", "Начать заново"); keys.innerHTML = ""; pick = {}; typing(500, askService); } },
+      ]);
+    }
+    function done() {
+      const when = pick.day === "сегодня" ? "сегодня" : pick.day;
+      bubble("msg--bot done",
+        `<b>✅ Вы записаны!</b>
+        <div class="card">
+          <b>${pick.service.n}</b> · ${pick.service.p}<br>
+          <span>Когда:</span> ${when}, ${pick.time}<br>
+          <span>Мастер увидит запись и подтвердит время.</span>
+        </div>`);
+      sys(`📨 Уведомление мастеру: ${pick.service.n}, ${when} ${pick.time}, ${pick.name}`);
+      typing(900, () => {
+        bubble("msg--bot", "Что-нибудь ещё?");
+        setKeys([
+          { t: "Записаться ещё раз", fn: () => { bubble("msg--user", "Ещё раз"); keys.innerHTML = ""; pick = {}; typing(500, askService); } },
+        ]);
+      });
+    }
+
+    askService();
+  </script>
+</body>
+</html>

@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ДезСервис 24 — дезинсекция и дератизация в Москве и МО</title>
   <meta name="description" content="Дезинсекция и дератизация в Москве и области: тараканы, клопы, муравьи, грызуны. Выезд в день обращения, гарантия по договору. Звоните 24/7.">
-  <meta name="theme-color" content="#0b120e">
+  <meta name="theme-color" content="#0a0f16">
   <style>
     :root {
-      --bg: #0b120e;
-      --panel: #101a14;
+      --bg: #0a0f16;
+      --panel: #101823;
       --line: rgba(255, 255, 255, .1);
-      --muted: rgba(235, 240, 235, .6);
-      --accent: #8ee06e;
-      --accent2: #2fbf71;
-      --dark: #070d09;
+      --muted: rgba(230, 240, 245, .6);
+      --accent: #5cd6f2;
+      --accent2: #1fa8d6;
+      --dark: #070c12;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       background:
-        radial-gradient(100% 70% at 90% 0%, #16301f 0%, transparent 55%),
-        radial-gradient(90% 80% at 0% 100%, #12341f 0%, transparent 60%),
+        radial-gradient(100% 70% at 90% 0%, #14324a 0%, transparent 55%),
+        radial-gradient(90% 80% at 0% 100%, #0e2d47 0%, transparent 60%),
         var(--bg);
       color: #eef4ee;
       font-family: "Inter", "Segoe UI", system-ui, sans-serif;
@@ -31,14 +31,14 @@
 
     header.top {
       position: sticky; top: 0; z-index: 10;
-      background: rgba(7, 13, 9, .85); backdrop-filter: blur(10px);
+      background: rgba(7, 12, 18, .85); backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
     }
     .top__in { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; max-width: 1080px; margin: 0 auto; }
     .brand { font-weight: 700; letter-spacing: -.02em; font-size: 17px; }
     .brand span { color: var(--accent); }
     .top__cta {
-      background: var(--accent2); color: #06130b; font-weight: 600;
+      background: var(--accent2); color: #05141c; font-weight: 600;
       padding: 9px 18px; border-radius: 10px; font-size: 14px;
       transition: transform .12s ease, filter .15s ease;
     }
@@ -47,7 +47,7 @@
     .hero { padding: clamp(56px, 10vw, 110px) 0 40px; }
     .hero .tag {
       display: inline-block; font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
-      color: var(--accent); border: 1px solid rgba(142, 224, 110, .4);
+      color: var(--accent); border: 1px solid rgba(92, 214, 242, .4);
       border-radius: 999px; padding: 6px 12px; margin-bottom: 18px;
     }
     .hero h1 {
@@ -62,7 +62,7 @@
       transition: transform .12s ease, filter .15s ease;
     }
     .btn:hover { transform: translateY(-2px); filter: brightness(1.08); }
-    .btn--main { background: var(--accent2); color: #06130b; }
+    .btn--main { background: var(--accent2); color: #05141c; }
     .btn--ghost { border: 1px solid var(--line); color: #fff; }
     .hero__note { margin-top: 16px; font-size: 13px; color: var(--muted); }
     .hero__note b { color: var(--accent); }
@@ -87,7 +87,7 @@
       background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
       padding: 22px; transition: transform .15s ease, border-color .15s ease;
     }
-    .card:hover { transform: translateY(-3px); border-color: rgba(142, 224, 110, .35); }
+    .card:hover { transform: translateY(-3px); border-color: rgba(92, 214, 242, .35); }
     .card .ico { font-size: 26px; margin-bottom: 10px; }
     .card h3 { font-size: 16.5px; margin-bottom: 6px; letter-spacing: -.01em; }
     .card p { font-size: 13.5px; color: var(--muted); }
@@ -113,8 +113,8 @@
     .g b { color: #fff; display: block; font-size: 14.5px; margin-bottom: 2px; }
 
     .cta-block {
-      background: linear-gradient(135deg, #16301f, #0f2417);
-      border: 1px solid rgba(142, 224, 110, .3); border-radius: 20px;
+      background: linear-gradient(135deg, #14324a, #0c2136);
+      border: 1px solid rgba(92, 214, 242, .3); border-radius: 20px;
       padding: clamp(28px, 5vw, 48px); text-align: center;
     }
     .cta-block h2 { margin-bottom: 10px; }
@@ -125,7 +125,7 @@
 
     .wa-fab {
       position: fixed; right: 18px; bottom: 18px; z-index: 20;
-      background: var(--accent2); color: #06130b; font-weight: 700;
+      background: var(--accent2); color: #05141c; font-weight: 700;
       border-radius: 999px; padding: 13px 20px; font-size: 14.5px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
       transition: transform .12s ease;

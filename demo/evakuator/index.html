@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Эвакуатор 24 — эвакуация авто по Москве и области</title>
+  <meta name="description" content="Эвакуатор круглосуточно по Москве и области: легковые, кроссоверы, мото. Приезд 40 минут, аккуратная погрузка, честная цена до выезда.">
+  <meta name="theme-color" content="#0f0c0a">
+  <style>
+    :root {
+      --bg: #0f0c0a;
+      --panel: #1a1410;
+      --line: rgba(255, 255, 255, .1);
+      --muted: rgba(240, 235, 228, .6);
+      --accent: #ffb44d;
+      --accent2: #f28b1f;
+      --dark: #0a0806;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background:
+        radial-gradient(100% 70% at 90% 0%, #3a2310 0%, transparent 55%),
+        radial-gradient(90% 80% at 0% 100%, #2d1e0e 0%, transparent 60%),
+        var(--bg);
+      color: #f4efe8;
+      font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+      line-height: 1.55;
+    }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 18px; }
+    a { color: var(--accent); text-decoration: none; }
+
+    header.top {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(10, 8, 6, .85); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .top__in { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; max-width: 1080px; margin: 0 auto; }
+    .brand { font-weight: 700; letter-spacing: -.02em; font-size: 17px; }
+    .brand span { color: var(--accent); }
+    .top__cta {
+      background: var(--accent2); color: #1c0d05; font-weight: 600;
+      padding: 9px 18px; border-radius: 10px; font-size: 14px;
+      transition: transform .12s ease, filter .15s ease;
+    }
+    .top__cta:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+    .hero { padding: clamp(56px, 10vw, 110px) 0 40px; }
+    .hero .tag {
+      display: inline-block; font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid rgba(255, 180, 77, .4);
+      border-radius: 999px; padding: 6px 12px; margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: clamp(30px, 6vw, 56px); line-height: 1.08; letter-spacing: -.03em;
+      font-weight: 700; max-width: 16ch;
+    }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero p.lead { margin: 18px 0 26px; max-width: 46ch; color: var(--muted); font-size: clamp(15px, 2vw, 18px); }
+    .hero__cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 13px 24px; border-radius: 12px; font-weight: 600; font-size: 15px;
+      transition: transform .12s ease, filter .15s ease;
+    }
+    .btn:hover { transform: translateY(-2px); filter: brightness(1.08); }
+    .btn--main { background: var(--accent2); color: #1c0d05; }
+    .btn--ghost { border: 1px solid var(--line); color: #fff; }
+    .hero__note { margin-top: 16px; font-size: 13px; color: var(--muted); }
+    .hero__note b { color: var(--accent); }
+
+    .strip {
+      border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+      background: var(--dark);
+    }
+    .strip__in {
+      max-width: 1080px; margin: 0 auto; padding: 14px 18px;
+      display: flex; gap: clamp(16px, 4vw, 48px); flex-wrap: wrap;
+      font-size: 13.5px; color: var(--muted);
+    }
+    .strip b { color: #fff; font-size: 16px; display: block; }
+
+    section { padding: clamp(44px, 8vw, 80px) 0; }
+    .label { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    h2 { font-size: clamp(24px, 4vw, 36px); letter-spacing: -.02em; margin-bottom: 28px; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+    .card {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+      padding: 22px; transition: transform .15s ease, border-color .15s ease;
+    }
+    .card:hover { transform: translateY(-3px); border-color: rgba(255, 180, 77, .35); }
+    .card .ico { font-size: 26px; margin-bottom: 10px; }
+    .card h3 { font-size: 16.5px; margin-bottom: 6px; letter-spacing: -.01em; }
+    .card p { font-size: 13.5px; color: var(--muted); }
+    .card .price { margin-top: 12px; font-weight: 700; color: var(--accent); font-size: 15px; }
+
+    .prices { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+    .prices td { padding: 12px 10px; border-bottom: 1px solid var(--line); }
+    .prices td:last-child { text-align: right; font-weight: 700; color: var(--accent); white-space: nowrap; }
+    .prices .small { color: var(--muted); font-size: 12.5px; display: block; font-weight: 400; }
+
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+    .step { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
+    .step .n { color: var(--accent); font-weight: 700; font-size: 13px; letter-spacing: .1em; }
+    .step h3 { font-size: 15.5px; margin: 8px 0 6px; }
+    .step p { font-size: 13px; color: var(--muted); }
+
+    .guarantee {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;
+    }
+    .g { display: flex; gap: 10px; align-items: flex-start; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+    .g .e { font-size: 20px; }
+    .g p { font-size: 13.5px; color: var(--muted); }
+    .g b { color: #fff; display: block; font-size: 14.5px; margin-bottom: 2px; }
+
+    .cta-block {
+      background: linear-gradient(135deg, #3a2310, #241608);
+      border: 1px solid rgba(255, 180, 77, .3); border-radius: 20px;
+      padding: clamp(28px, 5vw, 48px); text-align: center;
+    }
+    .cta-block h2 { margin-bottom: 10px; }
+    .cta-block p { color: var(--muted); margin-bottom: 22px; }
+
+    footer { border-top: 1px solid var(--line); padding: 26px 0 40px; font-size: 13px; color: var(--muted); }
+    .foot__in { max-width: 1080px; margin: 0 auto; padding: 0 18px; display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+
+    .wa-fab {
+      position: fixed; right: 18px; bottom: 18px; z-index: 20;
+      background: var(--accent2); color: #1c0d05; font-weight: 700;
+      border-radius: 999px; padding: 13px 20px; font-size: 14.5px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
+      transition: transform .12s ease;
+    }
+    .wa-fab:hover { transform: translateY(-2px); }
+
+    @media (max-width: 640px) {
+      .strip__in { gap: 14px; }
+      .strip__in div { flex: 1 1 40%; }
+    }
+  </style>
+</head>
+<body id="top">
+
+<header class="top">
+  <div class="top__in">
+    <a class="brand" href="#top">Эвакуатор<span>·24</span></a>
+    <a class="top__cta" href="https://wa.me/79651288242?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D1%83%D0%B6%D0%B5%D0%BD%20%D1%8D%D0%B2%D0%B0%D0%BA%D1%83%D0%B0%D1%82%D0%BE%D1%80" target="_blank" rel="noopener">Вызвать эвакуатор</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <span class="tag">Москва и область · круглосуточно</span>
+      <h1>Эвакуируем <em>легковые, кроссоверы и мото</em> за 40 минут</h1>
+      <p class="lead">Цена называется до выезда и не меняется. Аккуратная погрузка — лебёдка и мягкие стропы, машины после ДТП грузим без дополнительных повреждений.</p>
+      <div class="hero__cta">
+        <a class="btn btn--main" href="https://wa.me/79651288242?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D1%83%D0%B6%D0%B5%D0%BD%20%D1%8D%D0%B2%D0%B0%D0%BA%D1%83%D0%B0%D1%82%D0%BE%D1%80" target="_blank" rel="noopener">Написать в WhatsApp</a>
+        <a class="btn btn--ghost" href="#prices">Посмотреть цены</a>
+      </div>
+      <p class="hero__note">⏱ Приезд <b>40 мин</b> по городу · 🌙 Работаем <b>24/7</b> · 💳 Наличные / перевод</p>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="strip__in">
+      <div><b>40 мин</b>средний приезд по Москве</div>
+      <div><b>24/7</b>без ночных надбавок</div>
+      <div><b>до 3,5 т</b>любой легковой транспорт</div>
+      <div><b>0 ₽</b>подача по городу</div>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <p class="label">01 — Услуги</p>
+      <h2>Что эвакуируем</h2>
+      <div class="grid">
+        <div class="card"><div class="ico">🚗</div><h3>Легковые</h3><p>Сломался, не заводится, спустило колесо — отвезём домой или в сервис.</p><div class="price">от 2 000 ₽</div></div>
+        <div class="card"><div class="ico">🚙</div><h3>Кроссоверы и джипы</h3><p>Удлинённая платформа, усиленные трапы, лебёдка до 3,5 тонн.</p><div class="price">от 2 800 ₽</div></div>
+        <div class="card"><div class="ico">🏍</div><h3>Мото и скутеры</h3><p>Мягкие стропы, фиксация колёс — техника доедет без царапин.</p><div class="price">от 1 800 ₽</div></div>
+        <div class="card"><div class="ico">🚨</div><h3>После ДТП</h3><p>Аккуратно заберём с места аварии, при необходимости — в указанный вами сервис.</p><div class="price">от 2 500 ₽</div></div>
+        <div class="card"><div class="ico">🕳</div><h3>Из кювета / грязи</h3><p>Лебёдка и оттяжка — достанем, где проехала обычная техника.</p><div class="price">от 3 000 ₽</div></div>
+        <div class="card"><div class="ico">🏢</div><h3>Междугороднее</h3><p>Москва — область и соседние регионы, расчёт по километражу заранее.</p><div class="price">по расчёту</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="prices" style="background: var(--dark); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);">
+    <div class="wrap">
+      <p class="label">02 — Цены</p>
+      <h2>Сколько стоит эвакуация</h2>
+      <table class="prices">
+        <tr><td>По Москве (до 20 км)<span class="small">легковой, подача включена</span></td><td>2 000 ₽</td></tr>
+        <tr><td>За МКАД<span class="small">+ 50 ₽/км</span></td><td>от 2 300 ₽</td></tr>
+        <tr><td>Кроссовер / джип<span class="small">до 3,5 т</span></td><td>от 2 800 ₽</td></tr>
+        <tr><td>Мото / скутер<span class="small">с фиксацией</span></td><td>от 1 800 ₽</td></tr>
+        <tr><td>Загряз / кювет<span class="small">лебёдка</span></td><td>от 3 000 ₽</td></tr>
+        <tr><td>Ночью и в праздники<span class="small">без надбавок</span></td><td>+0 ₽</td></tr>
+      </table>
+      <p style="margin-top:14px; font-size:13px; color:var(--muted)">Цена фиксируется до выезда: называете марку, адрес и куда везти — озвучиваем точную сумму. Без «на месте посмотрим».</p>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <p class="label">03 — Как мы работаем</p>
+      <h2>Четыре шага — и машина в пути</h2>
+      <div class="steps">
+        <div class="step"><div class="n">ШАГ 01</div><h3>Заявка</h3><p>Пишете в WhatsApp: марка, адрес, куда везти. Сразу — точная цена и время подачи.</p></div>
+        <div class="step"><div class="n">ШАГ 02</div><h3>Выезд</h3><p>Эвакуатор едет к вам, водителем названо время — и оно не «плавает».</p></div>
+        <div class="step"><div class="n">ШАГ 03</div><h3>Погрузка</h3><p>Лебёдка, мягкие стропы, фиксация колёс. Машины после ДТП — с особой аккуратностью.</p></div>
+        <div class="step"><div class="n">ШАГ 04</div><h3>Доставка</h3><p>Привозим к дому, в сервис или на стоянку. Оплата после — наличными или переводом.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="wrap">
+      <p class="label">04 — Почему мы</p>
+      <h2>Что включено в каждый заказ</h2>
+      <div class="guarantee">
+        <div class="g"><span class="e">💰</span><p><b>Цена до выезда</b>названная сумма не меняется на месте</p></div>
+        <div class="g"><span class="e">🛠</span><p><b>Аккуратная погрузка</b>лебёдка и стропы, без волочения</p></div>
+        <div class="g"><span class="e">🌙</span><p><b>24/7 без надбавок</b>ночь, праздники, непогода — цена та же</p></div>
+        <div class="g"><span class="e">📄</span><p><b>Документы</b>чек по запросу, для страховой — акт эвакуации</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cta">
+    <div class="wrap">
+      <div class="cta-block">
+        <p class="label" style="margin-bottom: 14px;">05 — Заявка</p>
+        <h2>Машина встала? Ответим за 2 минуты</h2>
+        <p>Напишите марку авто и адрес — назовём точную цену и время подачи.</p>
+        <a class="btn btn--main" href="https://wa.me/79651288242?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D1%83%D0%B6%D0%B5%D0%BD%20%D1%8D%D0%B2%D0%B0%D0%BA%D1%83%D0%B0%D1%82%D0%BE%D1%80" target="_blank" rel="noopener">Написать в WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="foot__in">
+    <span>Эвакуатор·24 — эвакуация автомобилей, Москва и область</span>
+    <a href="https://wa.me/79651288242" target="_blank" rel="noopener">WhatsApp 24/7</a>
+  </div>
+</footer>
+
+<a class="wa-fab" href="https://wa.me/79651288242?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D1%83%D0%B6%D0%B5%D0%BD%20%D1%8D%D0%B2%D0%B0%D0%BA%D1%83%D0%B0%D1%82%D0%BE%D1%80" target="_blank" rel="noopener">💬 Вызвать эвакуатор</a>
+
+</body>
+</html>

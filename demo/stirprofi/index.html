@@ -201,6 +201,20 @@
   .contact__card{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:clamp(22px,3vw,34px)}
   .contact__card h3{margin:0 0 6px;font-size:19px;font-weight:600}
   .contact__card p{margin:0 0 18px;font-size:14px;color:var(--muted)}
+
+  /* заявка — без сервера, текст уходит в WhatsApp */
+  .lead{display:grid;gap:10px;margin-top:4px}
+  .lead label{display:grid;gap:5px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .lead input,.lead textarea{
+    width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:3px;
+    background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:14px;
+    outline:none;transition:border-color .2s;
+  }
+  .lead textarea{resize:vertical;min-height:76px;line-height:1.45}
+  .lead input:focus,.lead textarea:focus{border-color:var(--accent)}
+  .lead input::placeholder,.lead textarea::placeholder{color:var(--muted);opacity:.7}
+  .lead__hint{margin:2px 0 6px;font-size:11.5px;color:var(--muted);line-height:1.45}
+  .lead .btn{justify-content:center;width:100%;cursor:pointer}
   @media(max-width:860px){.contact{grid-template-columns:1fr}}
 
   footer{border-top:1px solid var(--line);margin-top:clamp(30px,4vw,50px);padding:22px 0 30px}
@@ -409,12 +423,28 @@
       </div>
 
       <div class="contact__card">
-        <h3>Удобнее написать?</h3>
-        <p>Напишите марку машины и что случилось — ответим и назовём цену.</p>
-        <div class="hero__actions">
-          <a class="btn btn--solid" href="https://wa.me/79997564111?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A1%D1%82%D0%B8%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D0%B0%20%D0%BD%D0%B5%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82" target="_blank" rel="noopener">Написать в WhatsApp</a>
-          <a class="btn btn--ghost" href="tel:+79997564111">Позвонить</a>
-        </div>
+        <h3>Оставьте заявку</h3>
+        <p>Марка машины и пара слов о поломке — перезвоним и назовём цену.</p>
+        <form class="lead" id="leadForm">
+          <label>
+            Ваше имя
+            <input name="name" type="text" placeholder="Как к вам обращаться" required>
+          </label>
+          <label>
+            Телефон
+            <input name="phone" type="tel" placeholder="+7 999 123-45-67" required>
+          </label>
+          <label>
+            Марка машины
+            <input name="brand" type="text" placeholder="Например, Bosch">
+          </label>
+          <label>
+            Что случилось
+            <textarea name="problem" placeholder="Не сливает, шумит, ошибка на дисплее…"></textarea>
+          </label>
+          <p class="lead__hint">Откроется WhatsApp с готовым текстом — останется только нажать «Отправить».</p>
+          <button class="btn btn--solid" type="submit">Отправить заявку</button>
+        </form>
       </div>
     </div>
   </section>
@@ -449,6 +479,25 @@
     var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     apply(next);
     try { localStorage.setItem('stirprofi-theme', next); } catch (e) {}
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var form = document.getElementById('leadForm');
+  if (!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    function val(n){ return (form.elements[n].value || '').trim(); }
+    var text = [
+      'Заявка с сайта',
+      'Имя: ' + val('name'),
+      'Телефон: ' + val('phone'),
+      'Марка: ' + (val('brand') || '—'),
+      'Что случилось: ' + (val('problem') || '—')
+    ].join('\n');
+    window.open('https://wa.me/79997564111?text=' + encodeURIComponent(text), '_blank', 'noopener');
   });
 })();
 </script>

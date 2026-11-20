@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ремонт стиральных машин на дому — Москва и область</title>
+<meta name="description" content="Ремонт стиральных машин на дому по Москве и области. Выезд в день обращения, ремонт при вас, детали с собой, гарантия 12 месяцев.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f7f5f1">
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root{
+    --paper:#f7f5f1;
+    --card:#fffdfa;
+    --panel:#f0ede7;
+    --panel2:#eae6de;
+    --panel3:#e2ddd4;
+    --ink:#1c2326;
+    --muted:#6d7376;
+    --line:rgba(28,35,38,.14);
+    --accent:#2f6b86;
+    --accent-2:#8fb3c4;
+    --accent-soft:rgba(47,107,134,.07);
+    --glass1:#e3edf1;
+    --glass2:#cfdde4;
+    --shadow:rgba(28,35,38,.08);
+    --pad:clamp(16px,3vw,48px);
+    --sans:"Helvetica Neue",Helvetica,Arial,"Segoe UI",sans-serif;
+  }
+  [data-theme="dark"]{
+    --paper:#14181a;
+    --card:#1b2023;
+    --panel:#232a2e;
+    --panel2:#20262a;
+    --panel3:#2a3237;
+    --ink:#eceef0;
+    --muted:#98a2a7;
+    --line:rgba(236,238,240,.14);
+    --accent:#6fb3cf;
+    --accent-2:#3f7f99;
+    --accent-soft:rgba(111,179,207,.12);
+    --glass1:#28343a;
+    --glass2:#1e282d;
+    --shadow:rgba(0,0,0,.35);
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-size:16px;line-height:1.55;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+
+  .demo-flag{
+    display:block;position:relative;z-index:200;background:var(--ink);color:var(--paper);
+    font-size:11px;letter-spacing:.04em;padding:8px 16px;text-align:center;
+  }
+  .demo-flag:hover{opacity:.88}
+
+  /* шапка */
+  .hd{
+    position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:28px;
+    padding:0 var(--pad);height:64px;background:var(--paper);border-bottom:1px solid var(--line);
+  }
+  .hd__logo{font-weight:700;letter-spacing:.12em;font-size:15px;margin-right:auto;white-space:nowrap}
+  .hd__logo span{color:var(--accent)}
+  .hd__nav{display:flex;gap:22px;font-size:13.5px;color:var(--muted)}
+  .hd__nav a:hover{color:var(--ink)}
+  .hd__cta{
+    border:1px solid var(--ink);border-radius:999px;padding:8px 18px;font-size:13px;
+    transition:background .2s,color .2s;white-space:nowrap;
+  }
+  .hd__cta:hover{background:var(--ink);color:var(--paper)}
+  .theme{
+    width:36px;height:36px;flex:0 0 36px;border-radius:50%;border:1px solid var(--line);
+    background:transparent;color:var(--ink);display:grid;place-items:center;cursor:pointer;
+    transition:border-color .2s,color .2s,transform .2s;
+  }
+  .theme:hover{border-color:var(--accent);color:var(--accent);transform:rotate(-12deg)}
+  .theme .ic-sun{display:none}
+  [data-theme="dark"] .theme .ic-sun{display:block}
+  [data-theme="dark"] .theme .ic-moon{display:none}
+  body,.hd,.card,.price,.price__row,.step,.contact__card,.hero__photo,.demo-flag,.step__n{
+    transition:background-color .28s ease,color .28s ease,border-color .28s ease;
+  }
+  @media(max-width:860px){
+    .hd__nav{display:none}
+  }
+
+  main{max-width:1180px;margin:0 auto;padding:0 var(--pad)}
+
+  /* первый экран */
+  .hero{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
+    gap:clamp(24px,4vw,64px);align-items:center;
+    padding:clamp(28px,5vw,64px) 0 clamp(32px,5vw,64px);
+  }
+  .hero__meta{
+    display:flex;gap:18px;flex-wrap:wrap;margin:0 0 clamp(20px,3vw,32px);
+    padding-top:12px;border-top:1px solid var(--line);
+    font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+  }
+  .hero__title{margin:0 0 clamp(16px,2.5vw,26px);font-size:clamp(32px,4.8vw,62px);line-height:1.02;letter-spacing:-.03em;font-weight:600}
+  .hero__title em{font-style:normal;color:var(--accent)}
+  .hero__lead{margin:0 0 clamp(20px,3vw,30px);max-width:42ch;color:var(--muted);font-size:15.5px}
+  .hero__actions{display:flex;gap:12px;flex-wrap:wrap}
+  .hero__photo{position:relative;border:1px solid var(--line);background:var(--panel);border-radius:3px;overflow:hidden;aspect-ratio:4/3;display:grid;place-items:center}
+  .hero__photo svg{width:100%;height:100%;padding:clamp(10px,3vw,30px)}
+  .hero__photo::after{
+    content:'иллюстрация — заменим на ваши фото';position:absolute;left:10px;bottom:8px;
+    font-size:10px;letter-spacing:.06em;color:#fff;background:rgba(20,26,29,.55);
+    padding:3px 8px;border-radius:3px;
+  }
+  @media(max-width:860px){
+    .hero{grid-template-columns:1fr}
+    .hero__photo{aspect-ratio:16/11}
+  }
+
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:999px;
+    font-size:14.5px;font-weight:500;transition:background .2s,color .2s,border-color .2s,transform .15s;
+    border:1px solid transparent;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn--solid{background:var(--accent);color:#fff}
+  .btn--solid:hover{background:#255a72}
+  [data-theme="dark"] .btn--solid{color:#0f1518}
+  [data-theme="dark"] .btn--solid:hover{background:#8cc6dd}
+  .btn--ghost{border-color:var(--ink);color:var(--ink)}
+  .btn--ghost:hover{background:var(--ink);color:var(--paper)}
+
+  /* секции */
+  .sec{padding:clamp(40px,6vw,76px) 0;border-top:1px solid var(--line);scroll-margin-top:72px}
+  .label{
+    margin:0 0 clamp(22px,3vw,36px);font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--muted);
+  }
+  .label b{color:var(--accent);font-weight:400}
+  h2{
+    margin:0 0 clamp(10px,1.5vw,16px);font-size:clamp(24px,3.2vw,38px);
+    line-height:1.1;letter-spacing:-.025em;font-weight:600;
+  }
+  .sub{margin:0 0 clamp(24px,3vw,36px);color:var(--muted);max-width:52ch;font-size:15px}
+
+  /* карточки услуг */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:3px;padding:clamp(18px,2vw,24px);
+  }
+  .card__num{font-size:11px;letter-spacing:.12em;color:var(--accent);margin-bottom:10px}
+  .card h3{margin:0 0 7px;font-size:17px;font-weight:600;letter-spacing:-.01em}
+  .card p{margin:0;font-size:13.8px;color:var(--muted);line-height:1.55}
+  @media(max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.grid-3{grid-template-columns:1fr}}
+
+  /* цены */
+  .price{background:var(--card);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+  .price__row{
+    display:grid;grid-template-columns:1fr auto;gap:16px;align-items:baseline;
+    padding:16px clamp(16px,2.2vw,26px);border-bottom:1px solid var(--line);
+  }
+  .price__row:last-child{border-bottom:0}
+  .price__row span:first-child{font-size:15.5px}
+  .price__row span:last-child{font-weight:600;font-size:15.5px;white-space:nowrap;color:var(--accent)}
+  .price__note{margin:14px 0 0;font-size:12.5px;color:var(--muted)}
+
+  /* шаги */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:clamp(18px,2vw,24px)}
+  .step__n{
+    width:30px;height:30px;border-radius:50%;background:var(--accent-soft);color:var(--accent);
+    display:grid;place-items:center;font-size:13px;font-weight:600;margin-bottom:14px;
+  }
+  .step h3{margin:0 0 7px;font-size:16px;font-weight:600}
+  .step p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.55}
+  @media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.steps{grid-template-columns:1fr}}
+
+  /* почему */
+  .why{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,3vw,34px)}
+  .why__item{border-top:1px solid var(--line);padding-top:16px}
+  .why__item h3{margin:0 0 6px;font-size:16.5px;font-weight:600}
+  .why__item p{margin:0;font-size:14px;color:var(--muted);line-height:1.6}
+  @media(max-width:640px){.why{grid-template-columns:1fr}}
+
+  /* контакты */
+  .contact{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:clamp(24px,4vw,56px);align-items:center;
+  }
+  .contact__phone{
+    display:block;font-size:clamp(28px,4.4vw,48px);font-weight:600;letter-spacing:-.02em;
+    margin:6px 0 20px;color:var(--ink);
+  }
+  .contact__phone:hover{color:var(--accent)}
+  .contact__list{margin:0;padding:0;list-style:none;font-size:14px;color:var(--muted)}
+  .contact__list li{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid var(--line)}
+  .contact__list b{color:var(--ink);font-weight:500}
+  .contact__card{background:var(--card);border:1px solid var(--line);border-radius:3px;padding:clamp(22px,3vw,34px)}
+  .contact__card h3{margin:0 0 6px;font-size:19px;font-weight:600}
+  .contact__card p{margin:0 0 18px;font-size:14px;color:var(--muted)}
+  @media(max-width:860px){.contact{grid-template-columns:1fr}}
+
+  footer{border-top:1px solid var(--line);margin-top:clamp(30px,4vw,50px);padding:22px 0 30px}
+  .foot{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<a class="demo-flag" href="../../index.html">← пример страницы · не официальный сайт</a>
+
+<header class="hd">
+  <a class="hd__logo" href="#top">СТИРПРОФИ<span>*</span></a>
+  <nav class="hd__nav">
+    <a href="#services">Что чиним</a>
+    <a href="#prices">Цены</a>
+    <a href="#how">Как работает</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+  <button class="theme" id="themeBtn" type="button" aria-label="Сменить тему" aria-pressed="false">
+    <svg class="ic-sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+      <circle cx="12" cy="12" r="4.2"/>
+      <path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/>
+    </svg>
+    <svg class="ic-moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+      <path d="M20.2 14.4A8.4 8.4 0 0 1 9.6 3.8 8.4 8.4 0 1 0 20.2 14.4Z"/>
+    </svg>
+  </button>
+  <a class="hd__cta" href="tel:+79997564111">Вызвать мастера</a>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="hero__text">
+      <p class="hero__meta">
+        <span>Москва и область</span>
+        <span>выезд в день обращения</span>
+      </p>
+      <h1 class="hero__title">Ремонт стиральных<br>машин <em>на дому</em></h1>
+      <p class="hero__lead">
+        Приезжаем в день обращения. Чиним при вас, детали привозим с собой.
+        Машинку не увозим в сервис и не просим ждать неделю.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--solid" href="tel:+79997564111">Позвонить</a>
+        <a class="btn btn--ghost" href="https://wa.me/79997564111?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A1%D1%82%D0%B8%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D0%B0%20%D0%BD%D0%B5%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82" target="_blank" rel="noopener">Написать в WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="hero__photo" aria-hidden="true">
+      <svg viewBox="0 0 400 320" role="img" aria-label="Стиральная машина">
+        <defs>
+          <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" style="stop-color:var(--glass1)"/>
+            <stop offset="1" style="stop-color:var(--glass2)"/>
+          </linearGradient>
+        </defs>
+
+        <ellipse cx="200" cy="292" rx="130" ry="10" style="fill:var(--shadow)"/>
+
+        <rect x="70" y="36" width="260" height="244" rx="14" style="fill:var(--card);stroke:var(--ink)" stroke-width="2"/>
+        <path d="M70 88 h260" style="stroke:var(--ink)" stroke-width="2"/>
+        <rect x="71" y="37" width="258" height="51" rx="13" style="fill:var(--panel)"/>
+
+        <circle cx="298" cy="63" r="15" style="fill:var(--card);stroke:var(--ink)" stroke-width="2"/>
+        <path d="M298 53 v6" style="stroke:var(--accent)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="94" cy="63" r="5" style="fill:var(--accent)"/>
+        <circle cx="116" cy="63" r="5" fill="none" style="stroke:var(--ink)" stroke-width="2"/>
+        <rect x="136" y="57" width="56" height="12" rx="2" style="fill:var(--panel3);stroke:var(--ink)" stroke-width="1.5"/>
+
+        <circle cx="200" cy="186" r="66" style="fill:var(--panel2);stroke:var(--ink)" stroke-width="2"/>
+        <circle cx="200" cy="186" r="55" fill="url(#glass)" style="stroke:var(--ink)" stroke-width="2"/>
+        <path d="M152 196 q12 -14 24 0 t24 0 t24 0 t24 0" fill="none" style="stroke:var(--accent)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M152 210 q12 -14 24 0 t24 0 t24 0 t24 0" fill="none" style="stroke:var(--accent-2)" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="224" cy="164" r="6" fill="#fff" opacity=".85"/>
+        <circle cx="240" cy="176" r="3.5" fill="#fff" opacity=".7"/>
+        <circle cx="174" cy="170" r="4" fill="#fff" opacity=".65"/>
+        <rect x="252" y="178" width="10" height="16" rx="5" style="fill:var(--card);stroke:var(--ink)" stroke-width="2"/>
+
+        <rect x="96" y="280" width="16" height="9" rx="2" style="fill:var(--ink)"/>
+        <rect x="288" y="280" width="16" height="9" rx="2" style="fill:var(--ink)"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="sec" id="services">
+    <p class="label"><b>01</b> — Что чиним</p>
+    <h2>Частые поломки</h2>
+    <p class="sub">Если ваш случай не в списке — позвоните, скажем сразу, берёмся или нет.</p>
+
+    <div class="grid-3">
+      <article class="card">
+        <div class="card__num">01</div>
+        <h3>Не сливает воду</h3>
+        <p>Засор в фильтре, сгорела помпа или пережат патрубок. Проверяем по очереди, а не меняем наугад.</p>
+      </article>
+      <article class="card">
+        <div class="card__num">02</div>
+        <h3>Не отжимает</h3>
+        <p>Чаще всего ремень, щётки двигателя или износ подшипника. Слышно по гулу на отжиме.</p>
+      </article>
+      <article class="card">
+        <div class="card__num">03</div>
+        <h3>Не набирает воду</h3>
+        <p>Засор в заливном фильтре, клапан или датчик уровня. Чинится за один визит.</p>
+      </article>
+      <article class="card">
+        <div class="card__num">04</div>
+        <h3>Шумит и стучит</h3>
+        <p>Подшипник, противовес или посторонний предмет в баке. Разбираем и показываем, что нашли.</p>
+      </article>
+      <article class="card">
+        <div class="card__num">05</div>
+        <h3>Не греет воду</h3>
+        <p>ТЭН в накипи или сгорел. Ставим новый, старый отдаём вам — чтобы видели причину.</p>
+      </article>
+      <article class="card">
+        <div class="card__num">06</div>
+        <h3>Ошибка на дисплее</h3>
+        <p>Считаем код, проверяем модуль. Если ремонт нецелесообразен — скажем прямо.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="prices">
+    <p class="label"><b>02</b> — Цены</p>
+    <h2>Сколько стоит</h2>
+    <p class="sub">Цену называем до начала работ и не меняем по ходу.</p>
+
+    <div class="price">
+      <div class="price__row"><span>Диагностика при ремонте</span><span>0 ₽</span></div>
+      <div class="price__row"><span>Замена ремня</span><span>от 1 800 ₽</span></div>
+      <div class="price__row"><span>Замена помпы</span><span>от 2 500 ₽</span></div>
+      <div class="price__row"><span>Замена ТЭНа</span><span>от 2 800 ₽</span></div>
+      <div class="price__row"><span>Замена подшипника</span><span>от 4 500 ₽</span></div>
+      <div class="price__row"><span>Ремонт модуля управления</span><span>от 5 500 ₽</span></div>
+    </div>
+    <p class="price__note">Цены ориентировочные: зависят от марки и модели. Точную сумму назовём после диагностики.</p>
+  </section>
+
+  <section class="sec" id="how">
+    <p class="label"><b>03</b> — Как работает</p>
+    <h2>От звонка до готовой машины</h2>
+    <p class="sub">Обычно всё занимает один визит.</p>
+
+    <div class="steps">
+      <article class="step">
+        <div class="step__n">1</div>
+        <h3>Звоните или пишете</h3>
+        <p>Назовите марку и что происходит. Простой случай подскажем по телефону бесплатно.</p>
+      </article>
+      <article class="step">
+        <div class="step__n">2</div>
+        <h3>Мастер приезжает</h3>
+        <p>Согласуем время в течение дня. Инструмент и ходовые запчасти — с собой.</p>
+      </article>
+      <article class="step">
+        <div class="step__n">3</div>
+        <h3>Чиним при вас</h3>
+        <p>Всё на виду, ничего не увозим. После ремонта включаем машину и проверяем режимы.</p>
+      </article>
+      <article class="step">
+        <div class="step__n">4</div>
+        <h3>Гарантия 12 месяцев</h3>
+        <p>На работу и деталь. Если повторится — приедем снова за свой счёт.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" id="why">
+    <p class="label"><b>04</b> — Почему мы</p>
+    <h2>Без сюрпризов</h2>
+
+    <div class="why">
+      <div class="why__item">
+        <h3>Не увозим машинку</h3>
+        <p>Ремонт на дому: не нужно жить без стирки несколько дней и везти её через город.</p>
+      </div>
+      <div class="why__item">
+        <h3>Детали с собой</h3>
+        <p>Ходовые запчасти в машине мастера. Никаких «закажем и приедем через неделю».</p>
+      </div>
+      <div class="why__item">
+        <h3>Цена не растёт</h3>
+        <p>Сумму называем заранее. Нашли ещё поломку — сначала спрашиваем, потом делаем.</p>
+      </div>
+      <div class="why__item">
+        <h3>Старую деталь отдаём</h3>
+        <p>Чтобы вы видели, за что заплатили. Никаких «оно само сломалось».</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contacts">
+    <p class="label"><b>05</b> — Контакты</p>
+
+    <div class="contact">
+      <div>
+        <h2>Позвоните — скажем, в чём дело</h2>
+        <a class="contact__phone" href="tel:+79997564111">+7 999 756-41-11</a>
+        <ul class="contact__list">
+          <li><span>Работаем</span><b>ежедневно, 8:00 — 22:00</b></li>
+          <li><span>Выезд</span><b>Москва и область</b></li>
+          <li><span>Гарантия</span><b>12 месяцев</b></li>
+        </ul>
+      </div>
+
+      <div class="contact__card">
+        <h3>Удобнее написать?</h3>
+        <p>Напишите марку машины и что случилось — ответим и назовём цену.</p>
+        <div class="hero__actions">
+          <a class="btn btn--solid" href="https://wa.me/79997564111?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A1%D1%82%D0%B8%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D0%B0%D1%8F%20%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D0%B0%20%D0%BD%D0%B5%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82" target="_blank" rel="noopener">Написать в WhatsApp</a>
+          <a class="btn btn--ghost" href="tel:+79997564111">Позвонить</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot">
+      <span>СтирПрофи · Москва</span>
+      <span>выезд · ремонт · гарантия 12 мес</span>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var btn  = document.getElementById('themeBtn');
+  var meta = document.querySelector('meta[name="theme-color"]');
+  var saved = null;
+  try { saved = localStorage.getItem('stirprofi-theme'); } catch (e) {}
+
+  function apply(t){
+    root.setAttribute('data-theme', t);
+    btn.setAttribute('aria-pressed', t === 'dark' ? 'true' : 'false');
+    btn.setAttribute('aria-label', t === 'dark' ? 'Включить светлую тему' : 'Включить тёмную тему');
+    if (meta) meta.setAttribute('content', t === 'dark' ? '#14181a' : '#f7f5f1');
+  }
+
+  apply(saved === 'dark' ? 'dark' : 'light');
+
+  btn.addEventListener('click', function(){
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    apply(next);
+    try { localStorage.setItem('stirprofi-theme', next); } catch (e) {}
+  });
+})();
+</script>
+
+</body>
+</html>
